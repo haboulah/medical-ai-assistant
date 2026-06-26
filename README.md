@@ -1,3 +1,12 @@
+---
+title: Medical Ai Assistant
+emoji: 🔥
+colorFrom: indigo
+colorTo: purple
+sdk: docker
+app_port: 10000
+---
+
 # Medical AI Assistant
 
 **Assistant de Pré-Diagnostic Médical** basé sur une architecture **Multi-Agents LangGraph**.
@@ -122,3 +131,15 @@ medical-ai-assistant/
 ## Licence
 
 MIT
+---
+title: Medical Ai Assistant
+emoji: 🔥
+colorFrom: indigo
+colorTo: purple
+sdk: docker
+pinned: false
+license: mit
+---
+
+Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
+>>>>>>> da5a4be5e8e95e6569951a56900f3deafdafbfff
