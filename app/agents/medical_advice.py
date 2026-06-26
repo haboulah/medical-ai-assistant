@@ -31,6 +31,7 @@ class MedicalAdviceAgent(BaseAgent):
 
         Returns:
             State updated with medical advice.
+
         """
         symptoms = state.get("symptoms", [])
         risk_level = state.get("risk_level", "LOW")
@@ -111,9 +112,7 @@ class MedicalAdviceAgent(BaseAgent):
         }
 
         return {
-            "advice": advice_templates.get(
-                risk_level, advice_templates["LOW"]
-            ),
+            "advice": advice_templates.get(risk_level, advice_templates["LOW"]),
             "disclaimer": "⚠️ Avertissement : cette application fournit uniquement une aide "
             "informative et ne remplace pas un professionnel de santé.",
         }

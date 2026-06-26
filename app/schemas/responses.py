@@ -4,7 +4,6 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Any
 
 from pydantic import BaseModel, Field
 
@@ -12,7 +11,9 @@ from pydantic import BaseModel, Field
 class ChatRequest(BaseModel):
     """Request schema for the /chat endpoint."""
 
-    message: str = Field(..., min_length=1, max_length=5000, description="User's symptoms description")
+    message: str = Field(
+        ..., min_length=1, max_length=5000, description="User's symptoms description"
+    )
 
 
 class SymptomOutput(BaseModel):
@@ -48,7 +49,9 @@ class MonitoringOutput(BaseModel):
     timestamp: str = Field(default="", description="Execution timestamp")
     duration_ms: float = Field(default=0.0, description="Total execution duration")
     agents_executed: list[str] = Field(default_factory=list, description="List of executed agents")
-    execution_times: dict[str, float] = Field(default_factory=dict, description="Per-agent execution times")
+    execution_times: dict[str, float] = Field(
+        default_factory=dict, description="Per-agent execution times"
+    )
     status: str = Field(default="success", description="Execution status")
     total_tokens: int = Field(default=0, description="Total tokens used")
 
@@ -85,7 +88,9 @@ class MetricsResponse(BaseModel):
     avg_duration_ms: float = Field(default=0.0, description="Average execution duration")
     max_duration_ms: float = Field(default=0.0, description="Maximum execution duration")
     min_duration_ms: float = Field(default=0.0, description="Minimum execution duration")
-    risk_distribution: dict[str, int] = Field(default_factory=dict, description="Risk level distribution")
+    risk_distribution: dict[str, int] = Field(
+        default_factory=dict, description="Risk level distribution"
+    )
     agent_calls: dict[str, int] = Field(default_factory=dict, description="Per-agent call count")
     memory_usage_mb: float = Field(default=0.0, description="Memory usage in MB")
     cpu_percent: float = Field(default=0.0, description="CPU usage percentage")

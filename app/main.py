@@ -53,6 +53,7 @@ def create_app() -> FastAPI:
 
     Returns:
         Configured FastAPI application instance.
+
     """
     app = FastAPI(
         title=settings.APP_NAME,

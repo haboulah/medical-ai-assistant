@@ -9,7 +9,7 @@ import pytest
 from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.database.connection import Base, async_session_factory, close_db, engine, init_db
+from app.database.connection import close_db, init_db
 from app.database.models import (
     HistoryRecord,
     LogRecord,
@@ -124,9 +124,7 @@ class TestLogRecord:
         db.add(record)
         await db.commit()
 
-        result = await db.execute(
-            select(LogRecord).where(LogRecord.correlation_id == "log-001")
-        )
+        result = await db.execute(select(LogRecord).where(LogRecord.correlation_id == "log-001"))
         saved = result.scalar_one()
         assert saved.level == "INFO"
         assert saved.message == "Test log message"
@@ -154,9 +152,7 @@ class TestLogRecord:
         db.add(record)
         await db.commit()
 
-        result = await db.execute(
-            select(LogRecord).where(LogRecord.correlation_id == "log-tb")
-        )
+        result = await db.execute(select(LogRecord).where(LogRecord.correlation_id == "log-tb"))
         saved = result.scalar_one()
         assert saved.traceback is not None
         assert "Traceback" in saved.traceback
@@ -285,6 +281,7 @@ class TestHistoryRecord:
         await db.commit()
 
         import asyncio
+
         await asyncio.sleep(0.01)
 
         hist2 = HistoryRecord(correlation_id="hist-order", role="assistant", content="Hi there")

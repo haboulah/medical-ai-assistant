@@ -7,12 +7,10 @@ import time
 from datetime import datetime
 
 import loguru
-from sqlalchemy import func, select
-from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.agents.monitoring import MonitoringAgent
 from app.database.connection import async_session_factory
-from app.database.models import HistoryRecord, LogRecord, MetricRecord, RequestRecord, generate_uuid
+from app.database.models import HistoryRecord, MetricRecord, RequestRecord
 from app.graph.workflow import compiled_graph
 from app.monitoring.service import MonitoringService
 
@@ -33,6 +31,7 @@ class MedicalAIService:
 
         Returns:
             Full response with all agent outputs.
+
         """
         start_time = time.perf_counter()
         uuid_val = MonitoringService.generate_uuid()
@@ -105,7 +104,9 @@ class MedicalAIService:
             # Save metrics
             await self._save_metrics(correlation_id, monitoring_output, "success")
             await self._save_history(correlation_id, "user", user_input)
-            await self._save_history(correlation_id, "assistant", medical_advice_text, "MedicalAdvice")
+            await self._save_history(
+                correlation_id, "assistant", medical_advice_text, "MedicalAdvice"
+            )
 
             loguru.logger.info(
                 f"[{correlation_id}] Request completed in {duration_ms:.1f}ms "

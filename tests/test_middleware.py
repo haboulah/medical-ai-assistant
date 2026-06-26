@@ -6,8 +6,6 @@ to the response headers, and that the request state is properly populated.
 
 from __future__ import annotations
 
-from unittest.mock import AsyncMock, patch
-
 import pytest
 from httpx import ASGITransport, AsyncClient
 from starlette.requests import Request
@@ -86,10 +84,7 @@ class TestCorrelationMiddlewareUnit:
             "type": "http",
             "method": "GET",
             "path": "/test",
-            "headers": [
-                (k.lower().encode(), v.encode())
-                for k, v in (headers or {}).items()
-            ],
+            "headers": [(k.lower().encode(), v.encode()) for k, v in (headers or {}).items()],
             "query_string": b"",
             "client": ("127.0.0.1", 50000),
             "server": ("test", 80),

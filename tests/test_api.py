@@ -7,13 +7,10 @@ the real LangGraph workflow.
 
 from __future__ import annotations
 
-from unittest.mock import ANY, MagicMock, patch
+from unittest.mock import MagicMock, patch
 
-import pytest
 from fastapi import status
 from httpx import AsyncClient
-
-from app.schemas.responses import ChatResponse
 
 
 # ====================================================================
@@ -187,7 +184,10 @@ class TestChat:
     ) -> None:
         mock_process.return_value = {
             "correlation_id": "cid-123",
-            "symptoms": {"symptoms": ["Fièvre", "Toux"], "raw_text": "J'ai de la fièvre et je tousse"},
+            "symptoms": {
+                "symptoms": ["Fièvre", "Toux"],
+                "raw_text": "J'ai de la fièvre et je tousse",
+            },
             "risk": {"level": "MEDIUM", "justification": "Fever needs attention."},
             "medical_advice": {
                 "advice": "Consultez un médecin.",
@@ -295,7 +295,14 @@ class TestChat:
         )
         data = resp.json()
         # Verify all expected top-level keys exist
-        expected = {"correlation_id", "symptoms", "risk", "medical_advice", "monitoring", "disclaimer"}
+        expected = {
+            "correlation_id",
+            "symptoms",
+            "risk",
+            "medical_advice",
+            "monitoring",
+            "disclaimer",
+        }
         assert expected.issubset(data.keys())
         # Verify nested structure
         assert "symptoms" in data["symptoms"]

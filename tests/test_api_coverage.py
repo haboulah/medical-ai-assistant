@@ -21,9 +21,7 @@ class TestMetricsPopulated:
     """Test /metrics with database records present."""
 
     @pytest.mark.asyncio
-    async def test_metrics_with_records(
-        self, async_client: AsyncClient, db: AsyncSession
-    ) -> None:
+    async def test_metrics_with_records(self, async_client: AsyncClient, db: AsyncSession) -> None:
         """Insert records and verify metrics reflect them."""
         # Populate requests with various statuses
         for i, status_val in enumerate(["success", "success", "error"]):
@@ -124,9 +122,7 @@ class TestMetricsPopulated:
 # ====================================================================
 class TestLogsPopulated:
     @pytest.mark.asyncio
-    async def test_logs_with_entries(
-        self, async_client: AsyncClient, db: AsyncSession
-    ) -> None:
+    async def test_logs_with_entries(self, async_client: AsyncClient, db: AsyncSession) -> None:
         """Logs should return entries when present."""
         for i in range(3):
             db.add(
@@ -147,9 +143,7 @@ class TestLogsPopulated:
         assert "created_at" in data["logs"][0]
 
     @pytest.mark.asyncio
-    async def test_logs_limit_respected(
-        self, async_client: AsyncClient, db: AsyncSession
-    ) -> None:
+    async def test_logs_limit_respected(self, async_client: AsyncClient, db: AsyncSession) -> None:
         """The limit parameter should cap the number of returned logs."""
         for i in range(10):
             db.add(
@@ -166,9 +160,7 @@ class TestLogsPopulated:
         assert len(data["logs"]) == 3
 
     @pytest.mark.asyncio
-    async def test_logs_multiple_levels(
-        self, async_client: AsyncClient, db: AsyncSession
-    ) -> None:
+    async def test_logs_multiple_levels(self, async_client: AsyncClient, db: AsyncSession) -> None:
         """Logs at different levels should all be returned."""
         for level in ["INFO", "WARNING", "ERROR", "DEBUG"]:
             db.add(
@@ -191,9 +183,7 @@ class TestLogsPopulated:
 # ====================================================================
 class TestHistoryPopulated:
     @pytest.mark.asyncio
-    async def test_history_with_records(
-        self, async_client: AsyncClient, db: AsyncSession
-    ) -> None:
+    async def test_history_with_records(self, async_client: AsyncClient, db: AsyncSession) -> None:
         """History should return conversation records."""
         for i in range(3):
             db.add(
@@ -214,9 +204,7 @@ class TestHistoryPopulated:
         assert "correlation_id" in data["history"][0]
 
     @pytest.mark.asyncio
-    async def test_history_limit(
-        self, async_client: AsyncClient, db: AsyncSession
-    ) -> None:
+    async def test_history_limit(self, async_client: AsyncClient, db: AsyncSession) -> None:
         for i in range(10):
             db.add(
                 HistoryRecord(
@@ -232,9 +220,7 @@ class TestHistoryPopulated:
         assert len(data["history"]) == 2
 
     @pytest.mark.asyncio
-    async def test_history_mixed_roles(
-        self, async_client: AsyncClient, db: AsyncSession
-    ) -> None:
+    async def test_history_mixed_roles(self, async_client: AsyncClient, db: AsyncSession) -> None:
         """History items should have correct roles."""
         db.add(
             HistoryRecord(
@@ -335,7 +321,7 @@ class TestDashboardHtmlPopulated:
         self, async_client: AsyncClient, db: AsyncSession
     ) -> None:
         """HTML dashboard should be served as a static page without placeholders."""
-        from app.database.models import RequestRecord, MetricRecord
+        from app.database.models import RequestRecord
 
         for i in range(3):
             db.add(
@@ -363,18 +349,16 @@ class TestDashboardHtmlPopulated:
         assert ">100%<" in text  # success rate starts as 100%
 
         # Elements we expect in the HTML
-        assert "id=\"totalRequests\"" in text
-        assert "id=\"requestsTable\"" in text
-        assert "id=\"riskChart\"" in text
+        assert 'id="totalRequests"' in text
+        assert 'id="requestsTable"' in text
+        assert 'id="riskChart"' in text
         assert "refreshDashboard" in text  # JS function exists
 
         # JS should fetch data from /dashboard/data
         assert "fetch('/dashboard/data')" in text
 
     @pytest.mark.asyncio
-    async def test_dashboard_html_shows_non_configured_llm(
-        self, async_client: AsyncClient
-    ) -> None:
+    async def test_dashboard_html_shows_non_configured_llm(self, async_client: AsyncClient) -> None:
         """LLM badge should say 'Non configure' when GROQ_API_KEY is empty."""
         resp = await async_client.get("/dashboard")
         text = resp.text
@@ -393,9 +377,7 @@ class TestHealthDatabaseStatus:
         assert data["database"] == "ok"
 
     @pytest.mark.asyncio
-    async def test_health_database_error(
-        self, async_client: AsyncClient
-    ) -> None:
+    async def test_health_database_error(self, async_client: AsyncClient) -> None:
         """Database status should report an error when connection fails."""
         from unittest.mock import AsyncMock, patch
 

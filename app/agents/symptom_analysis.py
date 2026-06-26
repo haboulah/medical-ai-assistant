@@ -31,6 +31,7 @@ class SymptomAnalysisAgent(BaseAgent):
 
         Returns:
             State updated with detected symptoms.
+
         """
         user_input = state.get("user_input", "")
 
@@ -81,15 +82,43 @@ class SymptomAnalysisAgent(BaseAgent):
         symptoms = []
         # Common symptom keywords (French)
         keywords = [
-            "fièvre", "toux", "fatigue", "maux de tête", "céphalée",
-            "douleur", "nausée", "vomissement", "diarrhée", "vertige",
-            "essoufflement", "dyspnée", "frisson", "sueur", "courbature",
-            "mal de gorge", "écoulement nasal", "éternuement", "congestion",
-            "perte d'odorat", "perte de goût", "douleur thoracique",
-            "palpitation", "confusion", "évanouissement", "saignement",
-            "gonflement", "éruption cutanée", "démangeaison", "insomnie",
-            "anxiété", "dépression", "perte de poids", "prise de poids",
-            "soif excessive", "urination fréquente", "vision trouble",
+            "fièvre",
+            "toux",
+            "fatigue",
+            "maux de tête",
+            "céphalée",
+            "douleur",
+            "nausée",
+            "vomissement",
+            "diarrhée",
+            "vertige",
+            "essoufflement",
+            "dyspnée",
+            "frisson",
+            "sueur",
+            "courbature",
+            "mal de gorge",
+            "écoulement nasal",
+            "éternuement",
+            "congestion",
+            "perte d'odorat",
+            "perte de goût",
+            "douleur thoracique",
+            "palpitation",
+            "confusion",
+            "évanouissement",
+            "saignement",
+            "gonflement",
+            "éruption cutanée",
+            "démangeaison",
+            "insomnie",
+            "anxiété",
+            "dépression",
+            "perte de poids",
+            "prise de poids",
+            "soif excessive",
+            "urination fréquente",
+            "vision trouble",
         ]
 
         text_lower = text.lower()

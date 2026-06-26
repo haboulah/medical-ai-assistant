@@ -7,7 +7,7 @@ used by the workflow builder.
 from __future__ import annotations
 
 from typing import Any
-from unittest.mock import MagicMock, patch
+from unittest.mock import MagicMock
 
 import pytest
 
@@ -105,7 +105,13 @@ class TestCreateWorkflowGraph:
         # The compiled graph stores node information internally.
         # We verify by checking that the set of expected nodes exists.
         nodes = list(graph.nodes.keys())
-        expected = ["supervisor", "symptom_analysis", "risk_assessment", "medical_advice", "monitoring"]
+        expected = [
+            "supervisor",
+            "symptom_analysis",
+            "risk_assessment",
+            "medical_advice",
+            "monitoring",
+        ]
         for node in expected:
             assert node in nodes, f"Missing node: {node}"
 
@@ -127,13 +133,15 @@ class TestCreateWorkflowGraph:
     async def test_graph_invoke_basic(self) -> None:
         """The compiled graph should accept and return a dict."""
         graph = create_workflow_graph()
-        result = await graph.ainvoke({
-            "user_input": "J'ai mal à la tête",
-            "correlation_id": "test-cid",
-            "uuid": "test-uuid",
-            "timestamp": "now",
-            "start_time": 1000.0,
-        })
+        result = await graph.ainvoke(
+            {
+                "user_input": "J'ai mal à la tête",
+                "correlation_id": "test-cid",
+                "uuid": "test-uuid",
+                "timestamp": "now",
+                "start_time": 1000.0,
+            }
+        )
         assert isinstance(result, dict)
         # The workflow should have populated various keys
         assert "symptoms" in result
@@ -145,19 +153,21 @@ class TestCreateWorkflowGraph:
     async def test_graph_invoke_empty_input(self) -> None:
         """Empty input should still flow through correctly."""
         graph = create_workflow_graph()
-        result = await graph.ainvoke({
-            "user_input": "",
-            "correlation_id": "empty-cid",
-            "uuid": "",
-            "timestamp": "",
-            "start_time": 2000.0,
-        })
+        result = await graph.ainvoke(
+            {
+                "user_input": "",
+                "correlation_id": "empty-cid",
+                "uuid": "",
+                "timestamp": "",
+                "start_time": 2000.0,
+            }
+        )
         # The supervisor returns an error for empty input
         assert isinstance(result, dict)
 
     def test_graph_uses_fallback_agents(self) -> None:
         """Since GROQ is not configured, all agents use fallback logic."""
-        graph = create_workflow_graph()
+        create_workflow_graph()
         # Agents inside the graph are created by create_workflow_graph()
         # Without GROQ, they should have llm = None
         # This is tested implicitly by test_graph_invoke_basic
@@ -176,13 +186,15 @@ class TestExistingCompiledGraph:
     async def test_compiled_graph_runs(self) -> None:
         from app.graph.workflow import compiled_graph
 
-        result = await compiled_graph.ainvoke({
-            "user_input": "Toux et fièvre",
-            "correlation_id": "singleton-test",
-            "uuid": "uuid-singleton",
-            "timestamp": "now",
-            "start_time": 3000.0,
-        })
+        result = await compiled_graph.ainvoke(
+            {
+                "user_input": "Toux et fièvre",
+                "correlation_id": "singleton-test",
+                "uuid": "uuid-singleton",
+                "timestamp": "now",
+                "start_time": 3000.0,
+            }
+        )
         assert isinstance(result, dict)
         assert "symptoms" in result
         assert "risk_level" in result

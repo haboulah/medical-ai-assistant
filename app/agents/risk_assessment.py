@@ -20,17 +20,37 @@ class RiskAssessmentAgent(BaseAgent):
     """
 
     HIGH_RISK_SYMPTOMS = [
-        "douleur thoracique", "chest pain", "difficulté respiratoire",
-        "difficulty breathing", "perte de conscience", "loss of consciousness",
-        "saignement abondant", "severe bleeding", "confusion soudaine",
-        "sudden confusion", "paralysie", "paralysis",
+        "douleur thoracique",
+        "chest pain",
+        "difficulté respiratoire",
+        "difficulty breathing",
+        "perte de conscience",
+        "loss of consciousness",
+        "saignement abondant",
+        "severe bleeding",
+        "confusion soudaine",
+        "sudden confusion",
+        "paralysie",
+        "paralysis",
     ]
 
     MEDIUM_RISK_SYMPTOMS = [
-        "fièvre persistante", "persistent fever", "forte fièvre", "high fever",
-        "douleur sévère", "severe pain", "vomissement répété", "repeated vomiting",
-        "déshydratation", "dehydration", "éruption cutanée", "skin rash",
-        "gonflement", "swelling", "vertige intense", "severe dizziness",
+        "fièvre persistante",
+        "persistent fever",
+        "forte fièvre",
+        "high fever",
+        "douleur sévère",
+        "severe pain",
+        "vomissement répété",
+        "repeated vomiting",
+        "déshydratation",
+        "dehydration",
+        "éruption cutanée",
+        "skin rash",
+        "gonflement",
+        "swelling",
+        "vertige intense",
+        "severe dizziness",
     ]
 
     def __init__(self):
@@ -45,6 +65,7 @@ class RiskAssessmentAgent(BaseAgent):
 
         Returns:
             State updated with risk assessment.
+
         """
         symptoms = state.get("symptoms", [])
         symptoms_text = ", ".join(symptoms) if symptoms else state.get("user_input", "")

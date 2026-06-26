@@ -1,8 +1,8 @@
 """Tests for main app factory, lifespan, and edge cases."""
+
 from __future__ import annotations
 
-import os
-from unittest.mock import AsyncMock, patch
+from unittest.mock import patch
 
 import pytest
 from httpx import ASGITransport, AsyncClient
@@ -85,7 +85,9 @@ class TestLifespan:
         """When init_db fails, lifespan logs an error but app still starts."""
         with patch("app.main.init_db", side_effect=Exception("DB down")):
             app = create_app()
-            async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
+            async with AsyncClient(
+                transport=ASGITransport(app=app), base_url="http://test"
+            ) as client:
                 resp = await client.get("/")
                 assert resp.status_code == 200
 

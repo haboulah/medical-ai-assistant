@@ -36,6 +36,7 @@ class MonitoringAgent(BaseAgent):
 
         Returns:
             State updated with monitoring metrics.
+
         """
         correlation_id = state.get("correlation_id", "unknown")
         uuid_val = state.get("uuid", "")

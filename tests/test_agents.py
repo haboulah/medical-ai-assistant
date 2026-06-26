@@ -1,4 +1,5 @@
-"""Tests for all agents: supervisor, symptom_analysis, risk_assessment,
+"""Tests for all agents: supervisor, symptom_analysis, risk_assessment.
+
 medical_advice, monitoring, and the base agent class.
 
 Since the test environment disables GROQ (``GROQ_API_KEY=""``), every agent
@@ -8,9 +9,7 @@ uses the *fallback* path.  This also serves as coverage for the fallback logic.
 from __future__ import annotations
 
 from typing import Any
-from unittest.mock import MagicMock, patch
-
-import pytest
+from unittest.mock import MagicMock
 
 from app.agents.base import BaseAgent
 from app.agents.medical_advice import MedicalAdviceAgent
@@ -18,7 +17,6 @@ from app.agents.monitoring import MonitoringAgent
 from app.agents.risk_assessment import RiskAssessmentAgent
 from app.agents.supervisor import SupervisorAgent
 from app.agents.symptom_analysis import SymptomAnalysisAgent
-from app.core import settings
 
 
 # ====================================================================
@@ -56,7 +54,9 @@ class TestBaseAgent:
         from langchain_core.messages import HumanMessage
 
         agent = ConcreteAgent()
-        msgs = [HumanMessage(content="Hello world, this is a test message with enough chars to count.")]
+        msgs = [
+            HumanMessage(content="Hello world, this is a test message with enough chars to count.")
+        ]
         count = agent.get_token_count(msgs)
         assert count > 0
         # Should be ~ len(content) // 4
@@ -134,12 +134,7 @@ class TestSymptomAnalysisAgent:
 
     def test_process_multiple_symptoms(self) -> None:
         agent = SymptomAnalysisAgent()
-        state = {
-            "user_input": (
-                "J'ai de la fièvre, des maux de tête, "
-                "et une grande fatigue"
-            )
-        }
+        state = {"user_input": ("J'ai de la fièvre, des maux de tête, " "et une grande fatigue")}
         result = agent.process(state)
         symptoms = result["symptoms"]
         assert "Fièvre" in symptoms

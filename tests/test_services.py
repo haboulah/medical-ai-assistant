@@ -8,15 +8,13 @@ the real LangGraph workflow during these tests.
 from __future__ import annotations
 
 from typing import Any
-from unittest.mock import ANY, AsyncMock, MagicMock, patch
+from unittest.mock import MagicMock, patch
 
 import pytest
 from sqlalchemy import select
-from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.database.connection import async_session_factory
 from app.database.models import HistoryRecord, MetricRecord, RequestRecord
-from app.graph.workflow import compiled_graph
 from app.services.medical_service import MedicalAIService, medical_service
 
 
@@ -62,9 +60,7 @@ class TestProcessChat:
         assert result["disclaimer"] != ""
 
     @pytest.mark.asyncio
-    async def test_process_chat_invokes_graph(
-        self, mock_graph_invoke: MagicMock
-    ) -> None:
+    async def test_process_chat_invokes_graph(self, mock_graph_invoke: MagicMock) -> None:
         """process_chat should call compiled_graph.ainvoke with initial state."""
         await medical_service.process_chat(
             user_input="Test symptoms",
@@ -117,9 +113,7 @@ class TestProcessChat:
         # Verify a RequestRecord was created
         async with async_session_factory() as session:
             result = await session.execute(
-                select(RequestRecord).where(
-                    RequestRecord.correlation_id == "cid-save-request"
-                )
+                select(RequestRecord).where(RequestRecord.correlation_id == "cid-save-request")
             )
             record = result.scalar_one_or_none()
             assert record is not None
@@ -141,9 +135,7 @@ class TestProcessChat:
         async with async_session_factory() as session:
             # Should have MetricRecords for each non-Monitoring agent
             result = await session.execute(
-                select(MetricRecord).where(
-                    MetricRecord.correlation_id == "cid-metrics"
-                )
+                select(MetricRecord).where(MetricRecord.correlation_id == "cid-metrics")
             )
             records = result.scalars().all()
             agent_names = [r.agent_name for r in records]
@@ -165,9 +157,9 @@ class TestProcessChat:
 
         async with async_session_factory() as session:
             result = await session.execute(
-                select(HistoryRecord).where(
-                    HistoryRecord.correlation_id == "cid-history"
-                ).order_by(HistoryRecord.created_at)
+                select(HistoryRecord)
+                .where(HistoryRecord.correlation_id == "cid-history")
+                .order_by(HistoryRecord.created_at)
             )
             records = result.scalars().all()
             assert len(records) >= 2  # user message + assistant response
@@ -186,9 +178,7 @@ class TestProcessChat:
 
         async with async_session_factory() as session:
             result = await session.execute(
-                select(RequestRecord).where(
-                    RequestRecord.correlation_id == "cid-err-save"
-                )
+                select(RequestRecord).where(RequestRecord.correlation_id == "cid-err-save")
             )
             record = result.scalar_one_or_none()
             assert record is not None
@@ -196,9 +186,7 @@ class TestProcessChat:
             assert record.risk_level == "UNKNOWN"
 
     @pytest.mark.asyncio
-    async def test_process_chat_handles_empty_input(
-        self, mock_graph_invoke: MagicMock
-    ) -> None:
+    async def test_process_chat_handles_empty_input(self, mock_graph_invoke: MagicMock) -> None:
         """Empty user input should still produce a valid response."""
         mock_graph_invoke.return_value = {
             "user_input": "",
@@ -251,9 +239,7 @@ class TestSaveMethods:
 
         async with async_session_factory() as session:
             result = await session.execute(
-                select(RequestRecord).where(
-                    RequestRecord.correlation_id == "save-req-1"
-                )
+                select(RequestRecord).where(RequestRecord.correlation_id == "save-req-1")
             )
             assert result.scalar_one() is not None
 
@@ -271,9 +257,7 @@ class TestSaveMethods:
 
         async with async_session_factory() as session:
             result = await session.execute(
-                select(RequestRecord).where(
-                    RequestRecord.correlation_id == "save-req-err"
-                )
+                select(RequestRecord).where(RequestRecord.correlation_id == "save-req-err")
             )
             record = result.scalar_one()
             assert record.status == "error"
@@ -293,9 +277,7 @@ class TestSaveMethods:
 
         async with async_session_factory() as session:
             result = await session.execute(
-                select(MetricRecord).where(
-                    MetricRecord.correlation_id == "save-met-1"
-                )
+                select(MetricRecord).where(MetricRecord.correlation_id == "save-met-1")
             )
             records = result.scalars().all()
             assert len(records) == 2
@@ -317,9 +299,7 @@ class TestSaveMethods:
 
         async with async_session_factory() as session:
             result = await session.execute(
-                select(MetricRecord).where(
-                    MetricRecord.correlation_id == "save-met-skip"
-                )
+                select(MetricRecord).where(MetricRecord.correlation_id == "save-met-skip")
             )
             records = result.scalars().all()
             agent_names = [r.agent_name for r in records]
@@ -336,9 +316,7 @@ class TestSaveMethods:
 
         async with async_session_factory() as session:
             result = await session.execute(
-                select(HistoryRecord).where(
-                    HistoryRecord.correlation_id == "save-hist-1"
-                )
+                select(HistoryRecord).where(HistoryRecord.correlation_id == "save-hist-1")
             )
             record = result.scalar_one()
             assert record.role == "user"
@@ -355,9 +333,7 @@ class TestSaveMethods:
 
         async with async_session_factory() as session:
             result = await session.execute(
-                select(HistoryRecord).where(
-                    HistoryRecord.correlation_id == "save-hist-2"
-                )
+                select(HistoryRecord).where(HistoryRecord.correlation_id == "save-hist-2")
             )
             record = result.scalar_one()
             assert record.role == "assistant"

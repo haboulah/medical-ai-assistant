@@ -10,7 +10,7 @@ import os
 import tempfile
 from pathlib import Path
 from typing import Any
-from unittest.mock import AsyncMock, MagicMock, patch
+from unittest.mock import MagicMock, patch
 
 # ---------------------------------------------------------------------------
 # Set test environment BEFORE any application modules are imported.
@@ -22,19 +22,6 @@ os.environ["DATABASE_URL"] = _test_db_url
 os.environ["GROQ_API_KEY"] = ""  # empty → agents use fallback extraction
 os.environ["LOG_LEVEL"] = "CRITICAL"
 
-import platform
-
-import pytest
-import pytest_asyncio
-from httpx import ASGITransport, AsyncClient
-from sqlalchemy import text
-from sqlalchemy.ext.asyncio import AsyncSession
-
-# Application imports – these trigger module-level singleton creation
-from app.core import settings
-from app.database.connection import Base, async_session_factory, close_db, engine, init_db
-from app.main import app as fastapi_app
-from app.monitoring.service import MonitoringService
 
 # ---------------------------------------------------------------------------
 # Ensure tables exist at module load time so any test using
@@ -42,6 +29,18 @@ from app.monitoring.service import MonitoringService
 # doesn't hit "no such table" errors.
 # ---------------------------------------------------------------------------
 import asyncio
+
+import pytest
+import pytest_asyncio
+from httpx import ASGITransport, AsyncClient
+from sqlalchemy.ext.asyncio import AsyncSession
+
+# Application imports – these trigger module-level singleton creation
+from app.core import settings
+from app.database.connection import async_session_factory, close_db, init_db
+from app.main import app as fastapi_app
+from app.monitoring.service import MonitoringService
+
 asyncio.run(init_db())
 
 # ---------------------------------------------------------------------------
@@ -147,8 +146,7 @@ def sample_state() -> dict[str, Any]:
         "risk_level": "MEDIUM",
         "risk_justification": "Le symptôme 'fièvre' peut nécessiter une consultation médicale.",
         "medical_advice": (
-            "Surveillez l'évolution de vos symptômes. "
-            "Reposez-vous et hydratez-vous."
+            "Surveillez l'évolution de vos symptômes. " "Reposez-vous et hydratez-vous."
         ),
         "disclaimer": "⚠️ Avertissement",
         # Execution metadata that MonitoringAgent reads

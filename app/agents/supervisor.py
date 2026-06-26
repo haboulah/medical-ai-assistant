@@ -29,6 +29,7 @@ class SupervisorAgent(BaseAgent):
 
         Returns:
             Updated state with supervisor routing information.
+
         """
         user_input = state.get("user_input", "")
         if not user_input:

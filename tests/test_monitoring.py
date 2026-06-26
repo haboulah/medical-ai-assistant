@@ -3,10 +3,7 @@
 from __future__ import annotations
 
 import os
-import sys
-from unittest.mock import MagicMock, patch
-
-import pytest
+from unittest.mock import patch
 
 from app.monitoring.service import MonitoringService, Timer
 
@@ -70,9 +67,7 @@ class TestMonitoringService:
         """get_system_info should return system information."""
         with patch("app.monitoring.service.platform.platform", return_value="test-os"):
             with patch("app.monitoring.service.psutil.cpu_count", return_value=8):
-                with patch(
-                    "app.monitoring.service.psutil.virtual_memory"
-                ) as mock_vm:
+                with patch("app.monitoring.service.psutil.virtual_memory") as mock_vm:
                     mock_vm.return_value.total = 8 * 1024**3  # 8 GB
                     mock_vm.return_value.available = 4 * 1024**3  # 4 GB
                     result = MonitoringService.get_system_info()

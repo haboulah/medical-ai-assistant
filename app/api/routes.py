@@ -5,13 +5,13 @@ from __future__ import annotations
 
 import platform
 from datetime import datetime
+from pathlib import Path
+from typing import Any
 
 import fastapi
 import langgraph
-import sqlalchemy
 from fastapi import APIRouter, Depends, HTTPException, Request
 from fastapi.responses import HTMLResponse
-from pathlib import Path
 from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -21,12 +21,8 @@ from app.database.models import HistoryRecord, LogRecord, MetricRecord, RequestR
 from app.monitoring.service import MonitoringService
 from app.schemas.responses import (
     ChatRequest,
-    ChatResponse,
-    ErrorResponse,
-    HealthResponse,
     HistoryItem,
     MetricsResponse,
-    RequestItem,
     VersionResponse,
 )
 from app.services.medical_service import medical_service
@@ -35,7 +31,7 @@ router = APIRouter()
 
 
 @router.get("/", tags=["Root"])
-async def root():
+async def root() -> Any:
     """Root endpoint with API information."""
     return {
         "name": settings.APP_NAME,
@@ -46,8 +42,8 @@ async def root():
         "dashboard": "/dashboard",
         "chat_ui": "/chat-ui",
     }
-    
-    
+
+
 @router.get("/chat-ui", tags=["Root"], response_class=HTMLResponse)
 async def chat_ui() -> HTMLResponse:
     """Serve the chat interface HTML page."""
@@ -56,7 +52,7 @@ async def chat_ui() -> HTMLResponse:
 
 
 @router.get("/health", tags=["Health"])
-async def health_check():
+async def health_check() -> Any:
     """Health check endpoint."""
     from app.database.connection import engine
 
@@ -79,7 +75,7 @@ async def health_check():
 
 
 @router.get("/metrics", tags=["Metrics"])
-async def get_metrics(db: AsyncSession = Depends(get_db)):
+async def get_metrics(db: AsyncSession = Depends(get_db)) -> Any:
     """Get application metrics."""
     try:
         # Total requests
@@ -110,7 +106,9 @@ async def get_metrics(db: AsyncSession = Depends(get_db)):
             select(
                 RequestRecord.risk_level,
                 func.count(RequestRecord.id).label("count"),
-            ).where(RequestRecord.risk_level.isnot(None)).group_by(RequestRecord.risk_level)
+            )
+            .where(RequestRecord.risk_level.isnot(None))
+            .group_by(RequestRecord.risk_level)
         )
         risk_dist = {row.risk_level: row.count for row in result.fetchall()}
 
@@ -127,7 +125,9 @@ async def get_metrics(db: AsyncSession = Depends(get_db)):
         memory_mb = MonitoringService.get_memory_usage_mb()
         cpu_percent = MonitoringService.get_cpu_percent()
 
-        success_rate = round((success_count / total_requests * 100) if total_requests > 0 else 100, 2)
+        success_rate = round(
+            (success_count / total_requests * 100) if total_requests > 0 else 100, 2
+        )
 
         return MetricsResponse(
             total_requests=total_requests,
@@ -135,8 +135,8 @@ async def get_metrics(db: AsyncSession = Depends(get_db)):
             avg_duration_ms=avg_duration,
             max_duration_ms=max_duration,
             min_duration_ms=min_duration,
-            risk_distribution=risk_dist,
-            agent_calls=agent_calls,
+            risk_distribution=dict(risk_dist),  # type: ignore[arg-type]
+            agent_calls=dict(agent_calls),  # type: ignore[arg-type]
             memory_usage_mb=memory_mb,
             cpu_percent=cpu_percent,
         )
@@ -146,42 +146,55 @@ async def get_metrics(db: AsyncSession = Depends(get_db)):
 
 
 @router.get("/logs", tags=["Logs"])
-async def get_logs(limit: int = 100, db: AsyncSession = Depends(get_db)):
+async def get_logs(limit: int = 100, db: AsyncSession = Depends(get_db)) -> Any:
     """Get recent application logs."""
     try:
         result = await db.execute(
             select(LogRecord).order_by(LogRecord.created_at.desc()).limit(limit)
         )
         logs = result.scalars().all()
-        return {"logs": [{"id": l.id, "level": l.level, "message": l.message, "created_at": l.created_at.isoformat()} for l in logs]}
+        return {
+            "logs": [
+                {
+                    "id": log.id,
+                    "level": log.level,
+                    "message": log.message,
+                    "created_at": log.created_at.isoformat(),
+                }
+                for log in logs
+            ]
+        }
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
 
 @router.get("/history", tags=["History"])
-async def get_history(limit: int = 50, db: AsyncSession = Depends(get_db)):
+async def get_history(limit: int = 50, db: AsyncSession = Depends(get_db)) -> Any:
     """Get recent conversation history."""
     try:
         result = await db.execute(
             select(HistoryRecord).order_by(HistoryRecord.created_at.desc()).limit(limit)
         )
         records = result.scalars().all()
-        return {"history": [
-            HistoryItem(
-                id=r.id,
-                correlation_id=r.correlation_id,
-                role=r.role,
-                content=r.content,
-                agent_name=r.agent_name,
-                created_at=r.created_at,
-            ) for r in records
-        ]}
+        return {
+            "history": [
+                HistoryItem(  # type: ignore[arg-type]
+                    id=r.id,
+                    correlation_id=r.correlation_id,
+                    role=r.role,
+                    content=r.content,
+                    agent_name=r.agent_name,
+                    created_at=r.created_at,
+                )
+                for r in records
+            ]
+        }
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
 
 @router.get("/version", tags=["Version"])
-async def get_version():
+async def get_version() -> Any:
     """Get application version information."""
     return VersionResponse(
         name=settings.APP_NAME,
@@ -193,14 +206,15 @@ async def get_version():
 
 
 @router.get("/dashboard", tags=["Dashboard"], include_in_schema=False)
-async def get_dashboard():
+async def get_dashboard() -> Any:
     """Serve the dashboard HTML page."""
     from app.dashboard.html import DASHBOARD_HTML
+
     return HTMLResponse(content=DASHBOARD_HTML)
 
 
 @router.get("/dashboard/data", tags=["Dashboard"])
-async def get_dashboard_data(db: AsyncSession = Depends(get_db)):
+async def get_dashboard_data(db: AsyncSession = Depends(get_db)) -> Any:
     """Get dashboard data as JSON (for Chart.js)."""
     try:
         # Total requests
@@ -232,7 +246,9 @@ async def get_dashboard_data(db: AsyncSession = Depends(get_db)):
             select(
                 RequestRecord.risk_level,
                 func.count(RequestRecord.id).label("count"),
-            ).where(RequestRecord.risk_level.isnot(None)).group_by(RequestRecord.risk_level)
+            )
+            .where(RequestRecord.risk_level.isnot(None))
+            .group_by(RequestRecord.risk_level)
         )
         risk_dist = {row.risk_level: row.count for row in result.fetchall()}
 
@@ -251,13 +267,13 @@ async def get_dashboard_data(db: AsyncSession = Depends(get_db)):
 
         # Recent requests
         result = await db.execute(
-            select(RequestRecord)
-            .order_by(RequestRecord.created_at.desc())
-            .limit(10)
+            select(RequestRecord).order_by(RequestRecord.created_at.desc()).limit(10)
         )
         recent = result.scalars().all()
 
-        success_rate = round((success_count / total_requests * 100) if total_requests > 0 else 100, 2)
+        success_rate = round(
+            (success_count / total_requests * 100) if total_requests > 0 else 100, 2
+        )
 
         return {
             "total_requests": total_requests,
@@ -274,7 +290,11 @@ async def get_dashboard_data(db: AsyncSession = Depends(get_db)):
             "recent_requests": [
                 {
                     "correlation_id": r.correlation_id,
-                    "user_input": (r.user_input[:97] + "...") if r.user_input and len(r.user_input) > 100 else (r.user_input or ""),
+                    "user_input": (
+                        (r.user_input[:97] + "...")
+                        if r.user_input and len(r.user_input) > 100
+                        else (r.user_input or "")
+                    ),
                     "status": r.status or "",
                     "risk_level": r.risk_level or "LOW",
                     "duration_ms": r.duration_ms or 0,
@@ -293,7 +313,7 @@ async def get_dashboard_data(db: AsyncSession = Depends(get_db)):
 
 
 @router.post("/chat", tags=["Chat"])
-async def chat(request: ChatRequest, http_request: Request):
+async def chat(request: ChatRequest, http_request: Request) -> Any:
     """Process a chat message through the multi-agent workflow.
 
     Args:
@@ -302,6 +322,7 @@ async def chat(request: ChatRequest, http_request: Request):
 
     Returns:
         Chat response with symptoms, risk assessment, and advice.
+
     """
     correlation_id = getattr(http_request.state, "correlation_id", "")
 
