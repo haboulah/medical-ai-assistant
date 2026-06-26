@@ -1,0 +1,30 @@
+# Docker Compose configuration for Medical AI Assistant
+
+services:
+  medical-ai-assistant:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: medical-ai-assistant
+    ports:
+      - "8080:8000"
+    environment:
+      - GROQ_API_KEY=${GROQ_API_KEY:-}
+      - APP_NAME=Medical AI Assistant
+      - APP_VERSION=1.0.0
+      - LOG_LEVEL=INFO
+      - DATABASE_URL=sqlite+aiosqlite:///./data/medical_ai.db
+    volumes:
+      - medical_data:/app/data
+      - medical_logs:/app/logs
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python3", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+volumes:
+  medical_data:
+  medical_logs:

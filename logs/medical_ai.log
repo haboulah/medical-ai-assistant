@@ -1,0 +1,249 @@
+2026-06-26 15:09:02.531 | INFO     | app.monitoring.service:setup_logging:58 | Logging initialized at level INFO
+2026-06-26 15:09:11.791 | INFO     | app.monitoring.service:setup_logging:58 | Logging initialized at level INFO
+2026-06-26 15:09:12.436 | INFO     | app.main:lifespan:23 | 🚀 Starting Medical AI Assistant v1.0.0
+2026-06-26 15:09:12.465 | INFO     | app.main:lifespan:29 | ✅ Database initialized
+2026-06-26 15:09:12.486 | INFO     | app.main:lifespan:35 | 💻 System: macOS-14.3-x86_64-i386-64bit | Python 3.12.2
+2026-06-26 15:09:12.486 | WARNING  | app.main:lifespan:41 | ⚠️  GROQ_API_KEY not configured. Using fallback extraction.
+2026-06-26 15:09:15.474 | INFO     | app.middleware.correlation:dispatch:65 | [ef1e2b34-01a9-4490-a2df-50e1b2844573] GET / -> 200 (5.4ms)
+2026-06-26 15:09:23.377 | INFO     | app.middleware.correlation:dispatch:65 | [17544e09-ee10-4fb5-856f-38fed0fee2ce] GET /health -> 200 (7.8ms)
+2026-06-26 15:09:23.393 | INFO     | app.middleware.correlation:dispatch:65 | [be35fb93-b30b-4d9a-a6cb-eda00a2c1721] GET /version -> 200 (0.7ms)
+2026-06-26 15:09:23.565 | INFO     | app.middleware.correlation:dispatch:65 | [851f9c87-ff2b-4a04-ab90-6c16f908d042] GET /metrics -> 200 (117.0ms)
+2026-06-26 15:09:31.923 | INFO     | app.services.medical_service:process_chat:41 | [] Processing chat input: J ai de la fievre, je tousse et je suis fatigue...
+2026-06-26 15:09:31.952 | INFO     | app.services.medical_service:process_chat:110 | [] Request completed in 8.3ms - Risk: LOW
+2026-06-26 15:09:31.953 | INFO     | app.middleware.correlation:dispatch:65 | [197874e2-8b53-4162-85bf-7f38aaa2af2c] POST /chat -> 200 (31.2ms)
+2026-06-26 15:10:12.572 | INFO     | app.main:lifespan:46 | 🛑 Shutting down Medical AI Assistant...
+2026-06-26 15:10:12.573 | INFO     | app.main:lifespan:48 | 👋 Goodbye!
+2026-06-26 15:10:18.310 | INFO     | app.monitoring.service:setup_logging:58 | Logging initialized at level INFO
+2026-06-26 15:10:18.865 | INFO     | app.main:lifespan:23 | 🚀 Starting Medical AI Assistant v1.0.0
+2026-06-26 15:10:18.872 | INFO     | app.main:lifespan:29 | ✅ Database initialized
+2026-06-26 15:10:18.891 | INFO     | app.main:lifespan:35 | 💻 System: macOS-14.3-x86_64-i386-64bit | Python 3.12.2
+2026-06-26 15:10:18.892 | WARNING  | app.main:lifespan:41 | ⚠️  GROQ_API_KEY not configured. Using fallback extraction.
+2026-06-26 15:10:27.568 | INFO     | app.services.medical_service:process_chat:41 | [623b5243-3b24-4dd8-838a-36d5ca3e3d71] Processing chat input: J ai de la fievre, je tousse et je suis fatigue...
+2026-06-26 15:10:27.606 | INFO     | app.services.medical_service:process_chat:110 | [623b5243-3b24-4dd8-838a-36d5ca3e3d71] Request completed in 9.1ms - Risk: LOW
+2026-06-26 15:10:27.606 | INFO     | app.middleware.correlation:dispatch:63 | [623b5243-3b24-4dd8-838a-36d5ca3e3d71] POST /chat -> 200 (43.3ms)
+2026-06-26 15:10:31.630 | INFO     | app.middleware.correlation:dispatch:63 | [09c8838b-c3c7-4c99-a21f-f641092018fd] GET /dashboard -> 200 (2.3ms)
+2026-06-26 15:17:31.645 | INFO     | app.monitoring.service:setup_logging:58 | Logging initialized at level INFO
+2026-06-26 15:17:32.460 | INFO     | app.middleware.correlation:dispatch:63 | [3675ef12-ba3a-47a5-b1f8-4570b2c42f36] GET /metrics -> 200 (129.4ms)
+2026-06-26 15:36:43.296 | INFO     | app.monitoring.service:setup_logging:58 | Logging initialized at level INFO
+2026-06-26 15:36:44.083 | INFO     | app.main:lifespan:23 | 🚀 Starting Medical AI Assistant v1.0.0
+2026-06-26 15:36:44.093 | INFO     | app.main:lifespan:29 | ✅ Database initialized
+2026-06-26 15:36:44.128 | INFO     | app.main:lifespan:35 | 💻 System: macOS-14.3-x86_64-i386-64bit | Python 3.12.2
+2026-06-26 15:36:44.128 | WARNING  | app.main:lifespan:41 | ⚠️  GROQ_API_KEY not configured. Using fallback extraction.
+2026-06-26 15:36:44.129 | INFO     | app.main:lifespan:46 | 🛑 Shutting down Medical AI Assistant...
+2026-06-26 15:36:44.130 | INFO     | app.main:lifespan:48 | 👋 Goodbye!
+2026-06-26 15:41:47.196 | INFO     | app.monitoring.service:setup_logging:58 | Logging initialized at level INFO
+2026-06-26 15:41:48.399 | INFO     | app.main:lifespan:23 | 🚀 Starting Medical AI Assistant v1.0.0
+2026-06-26 15:41:48.407 | INFO     | app.main:lifespan:29 | ✅ Database initialized
+2026-06-26 15:41:48.437 | INFO     | app.main:lifespan:35 | 💻 System: macOS-14.3-x86_64-i386-64bit | Python 3.12.2
+2026-06-26 15:41:48.437 | WARNING  | app.main:lifespan:41 | ⚠️  GROQ_API_KEY not configured. Using fallback extraction.
+2026-06-26 15:41:48.438 | INFO     | app.main:lifespan:46 | 🛑 Shutting down Medical AI Assistant...
+2026-06-26 15:41:48.439 | INFO     | app.main:lifespan:48 | 👋 Goodbye!
+2026-06-26 15:42:07.832 | INFO     | app.main:lifespan:46 | 🛑 Shutting down Medical AI Assistant...
+2026-06-26 15:42:07.837 | INFO     | app.main:lifespan:48 | 👋 Goodbye!
+2026-06-26 15:42:16.506 | INFO     | app.monitoring.service:setup_logging:58 | Logging initialized at level INFO
+2026-06-26 15:42:17.716 | INFO     | app.main:lifespan:23 | 🚀 Starting Medical AI Assistant v1.0.0
+2026-06-26 15:42:17.723 | INFO     | app.main:lifespan:29 | ✅ Database initialized
+2026-06-26 15:42:17.750 | INFO     | app.main:lifespan:35 | 💻 System: macOS-14.3-x86_64-i386-64bit | Python 3.12.2
+2026-06-26 15:42:17.750 | WARNING  | app.main:lifespan:41 | ⚠️  GROQ_API_KEY not configured. Using fallback extraction.
+2026-06-26 15:44:38.936 | INFO     | app.main:lifespan:46 | 🛑 Shutting down Medical AI Assistant...
+2026-06-26 15:44:38.937 | INFO     | app.main:lifespan:48 | 👋 Goodbye!
+2026-06-26 15:46:06.113 | INFO     | app.monitoring.service:setup_logging:58 | Logging initialized at level INFO
+2026-06-26 15:46:07.245 | INFO     | app.main:lifespan:23 | 🚀 Starting Medical AI Assistant v1.0.0
+2026-06-26 15:46:07.256 | INFO     | app.main:lifespan:29 | ✅ Database initialized
+2026-06-26 15:46:07.297 | INFO     | app.main:lifespan:35 | 💻 System: macOS-14.3-x86_64-i386-64bit | Python 3.12.2
+2026-06-26 15:46:07.310 | WARNING  | app.main:lifespan:41 | ⚠️  GROQ_API_KEY not configured. Using fallback extraction.
+2026-06-26 15:46:44.631 | INFO     | app.middleware.correlation:dispatch:63 | [db558359-61da-4f33-affa-33c19b970364] GET / -> 200 (6.5ms)
+2026-06-26 15:46:44.698 | INFO     | app.middleware.correlation:dispatch:63 | [00edea2f-1117-43fd-bcaa-8cd4dea18e0d] GET /health -> 200 (5.8ms)
+2026-06-26 15:46:44.754 | INFO     | app.middleware.correlation:dispatch:63 | [75fc138f-4901-4921-8dde-3fb9a6899690] GET /version -> 200 (0.8ms)
+2026-06-26 15:46:44.940 | INFO     | app.middleware.correlation:dispatch:63 | [faeb6925-c1a0-4d2a-85b4-8b933c1cc601] GET /metrics -> 200 (124.4ms)
+2026-06-26 15:46:44.975 | INFO     | app.middleware.correlation:dispatch:63 | [4ca0208f-cdfc-4272-b079-8bf11c9bca99] GET /dashboard -> 200 (3.1ms)
+2026-06-26 16:03:15.544 | INFO     | app.monitoring.service:setup_logging:58 | Logging initialized at level INFO
+2026-06-26 16:03:16.206 | INFO     | app.main:lifespan:23 | 🚀 Starting Medical AI Assistant v1.0.0
+2026-06-26 16:03:16.212 | INFO     | app.main:lifespan:29 | ✅ Database initialized
+2026-06-26 16:03:16.235 | INFO     | app.main:lifespan:35 | 💻 System: macOS-14.3-x86_64-i386-64bit | Python 3.12.2
+2026-06-26 16:03:16.235 | WARNING  | app.main:lifespan:41 | ⚠️  GROQ_API_KEY not configured. Using fallback extraction.
+2026-06-26 16:03:16.236 | INFO     | app.main:lifespan:46 | 🛑 Shutting down Medical AI Assistant...
+2026-06-26 16:03:16.237 | INFO     | app.main:lifespan:48 | 👋 Goodbye!
+2026-06-26 16:03:28.888 | INFO     | app.middleware.correlation:dispatch:63 | [2e30a160-dc47-4baa-9e44-ed9a35eb45c8] GET /dashboard -> 200 (0.9ms)
+2026-06-26 16:03:29.338 | INFO     | app.middleware.correlation:dispatch:63 | [1d13d58e-d0b3-44f8-b71f-37336aeef28c] GET /favicon.ico -> 404 (0.7ms)
+2026-06-26 16:04:02.435 | INFO     | app.middleware.correlation:dispatch:63 | [ba42371c-eaf1-46ad-8300-e6d1571146bf] GET /health -> 200 (5.4ms)
+2026-06-26 16:04:17.538 | INFO     | app.middleware.correlation:dispatch:63 | [a6461ea1-bb81-4f34-89db-6e5ba6f3f16f] GET /docs -> 200 (0.5ms)
+2026-06-26 16:04:18.051 | INFO     | app.middleware.correlation:dispatch:63 | [e884d9fa-72bc-4473-8bf3-80a55dbed719] GET /openapi.json -> 200 (5.5ms)
+2026-06-26 16:08:39.000 | INFO     | app.monitoring.service:setup_logging:58 | Logging initialized at level INFO
+2026-06-26 16:08:40.175 | INFO     | app.main:lifespan:23 | 🚀 Starting Medical AI Assistant v1.0.0
+2026-06-26 16:08:40.180 | INFO     | app.main:lifespan:29 | ✅ Database initialized
+2026-06-26 16:08:40.208 | INFO     | app.main:lifespan:35 | 💻 System: macOS-14.3-x86_64-i386-64bit | Python 3.12.2
+2026-06-26 16:08:40.209 | INFO     | app.main:lifespan:39 | 🤖 Groq LLM configured: llama-3.3-70b-versatile
+2026-06-26 16:08:40.210 | INFO     | app.main:lifespan:46 | 🛑 Shutting down Medical AI Assistant...
+2026-06-26 16:08:40.210 | INFO     | app.main:lifespan:48 | 👋 Goodbye!
+2026-06-26 16:08:48.265 | INFO     | app.middleware.correlation:dispatch:63 | [7a126387-1d2c-497c-98f9-ac5d29e8785b] GET /dashboard -> 200 (1.0ms)
+2026-06-26 16:08:52.843 | INFO     | app.middleware.correlation:dispatch:63 | [7d8f1e2d-8d10-4810-9f9e-df2178ba24ca] GET / -> 200 (0.6ms)
+2026-06-26 16:09:27.677 | INFO     | app.middleware.correlation:dispatch:63 | [df176a65-e329-4c63-92ba-852beaf9a02e] GET /health -> 200 (6.9ms)
+2026-06-26 16:09:51.689 | INFO     | app.main:lifespan:46 | 🛑 Shutting down Medical AI Assistant...
+2026-06-26 16:09:51.690 | INFO     | app.main:lifespan:48 | 👋 Goodbye!
+2026-06-26 16:09:52.330 | INFO     | app.monitoring.service:setup_logging:58 | Logging initialized at level INFO
+2026-06-26 16:09:53.328 | INFO     | app.main:lifespan:23 | 🚀 Starting Medical AI Assistant v1.0.0
+2026-06-26 16:09:53.333 | INFO     | app.main:lifespan:29 | ✅ Database initialized
+2026-06-26 16:09:53.357 | INFO     | app.main:lifespan:35 | 💻 System: macOS-14.3-x86_64-i386-64bit | Python 3.12.2
+2026-06-26 16:09:53.358 | INFO     | app.main:lifespan:39 | 🤖 Groq LLM configured: llama-3.3-70b-versatile
+2026-06-26 16:09:58.959 | INFO     | app.middleware.correlation:dispatch:63 | [bb4a5517-beee-4609-9f40-7dfaecde10d8] GET /health -> 200 (11.0ms)
+2026-06-26 16:09:59.892 | INFO     | app.middleware.correlation:dispatch:63 | [322042f3-5197-49e0-adb9-f9bba855dc06] GET /health -> 200 (7.0ms)
+2026-06-26 16:10:00.146 | INFO     | app.middleware.correlation:dispatch:63 | [79f66a36-23f0-459d-8a0f-d2131717dc9c] GET /health -> 200 (6.0ms)
+2026-06-26 16:10:00.720 | INFO     | app.middleware.correlation:dispatch:63 | [9d8ed3de-ed00-4cd4-8fb0-96126690325e] GET /health -> 200 (6.5ms)
+2026-06-26 16:11:18.783 | INFO     | app.services.medical_service:process_chat:41 | [c2b63f53-7834-476f-8941-8464df1e8d44] Processing chat input: j ai mal au dos depuis 3 jours...
+2026-06-26 16:11:20.358 | INFO     | app.services.medical_service:process_chat:110 | [c2b63f53-7834-476f-8941-8464df1e8d44] Request completed in 1534.5ms - Risk: MEDIUM
+2026-06-26 16:11:20.359 | INFO     | app.middleware.correlation:dispatch:63 | [c2b63f53-7834-476f-8941-8464df1e8d44] POST /chat -> 200 (1577.4ms)
+2026-06-26 16:17:40.883 | INFO     | app.middleware.correlation:dispatch:63 | [5997b8c7-a084-4131-b948-9f25a3e16ef3] GET /dashboard -> 200 (3.8ms)
+2026-06-26 16:17:53.947 | INFO     | app.middleware.correlation:dispatch:63 | [d6c65cc3-518f-4014-9e4e-18cfde245980] GET /health -> 200 (6.8ms)
+2026-06-26 16:17:54.411 | INFO     | app.middleware.correlation:dispatch:63 | [97d2e644-0208-41e7-bff9-8e4ebcf2c504] GET /health -> 200 (6.7ms)
+2026-06-26 16:17:54.564 | INFO     | app.middleware.correlation:dispatch:63 | [9ca67942-ef41-4768-9a99-99dd964ff238] GET /health -> 200 (5.1ms)
+2026-06-26 16:18:25.120 | INFO     | app.middleware.correlation:dispatch:63 | [c6bcdb83-a979-4a9c-a7c5-17e3041a53b0] GET /health -> 200 (2.5ms)
+2026-06-26 16:18:43.061 | INFO     | app.middleware.correlation:dispatch:63 | [1a66e7aa-2381-4075-8a28-2f2bf8b0520c] GET /health -> 200 (7.1ms)
+2026-06-26 16:19:57.605 | INFO     | app.middleware.correlation:dispatch:63 | [a7f613fc-9dfb-4436-9bd6-e67bb5456047] GET /redoc -> 200 (0.8ms)
+2026-06-26 16:19:57.908 | INFO     | app.middleware.correlation:dispatch:63 | [e1b3b860-e6b2-41c7-9ef0-805f9975021f] GET /openapi.json -> 200 (8.3ms)
+2026-06-26 16:20:30.133 | INFO     | app.middleware.correlation:dispatch:63 | [bb4077d1-df14-4d59-b4c8-0a239a070b02] GET /dashboard -> 200 (0.9ms)
+2026-06-26 16:22:55.441 | INFO     | app.main:lifespan:46 | 🛑 Shutting down Medical AI Assistant...
+2026-06-26 16:22:55.443 | INFO     | app.main:lifespan:48 | 👋 Goodbye!
+2026-06-26 16:23:12.516 | INFO     | app.monitoring.service:setup_logging:58 | Logging initialized at level INFO
+2026-06-26 16:23:13.860 | INFO     | app.main:lifespan:23 | 🚀 Starting Medical AI Assistant v1.0.0
+2026-06-26 16:23:13.867 | INFO     | app.main:lifespan:29 | ✅ Database initialized
+2026-06-26 16:23:13.900 | INFO     | app.main:lifespan:35 | 💻 System: macOS-14.3-x86_64-i386-64bit | Python 3.12.2
+2026-06-26 16:23:13.901 | INFO     | app.main:lifespan:39 | 🤖 Groq LLM configured: llama-3.3-70b-versatile
+2026-06-26 16:25:28.863 | INFO     | app.middleware.correlation:dispatch:63 | [c8674c75-ea5e-475b-94da-169412e496e8] GET /chat-ui -> 200 (10.8ms)
+2026-06-26 18:00:47.599 | INFO     | app.middleware.correlation:dispatch:63 | [7df4d6f6-02be-486e-a6e4-4a352ad05c92] GET /chat-ui -> 200 (2.9ms)
+2026-06-26 18:01:09.354 | INFO     | app.middleware.correlation:dispatch:63 | [78a3bea3-0298-4cbe-aeb1-94845b31055b] GET /docs -> 200 (1.4ms)
+2026-06-26 18:01:09.682 | INFO     | app.middleware.correlation:dispatch:63 | [5a92f0ef-eef5-4e96-9034-262009c15dc0] GET /openapi.json -> 200 (7.9ms)
+2026-06-26 18:01:42.980 | INFO     | app.middleware.correlation:dispatch:63 | [d0bdaa0f-7111-4192-940b-2fdfe913b970] GET /redoc -> 200 (0.4ms)
+2026-06-26 18:01:43.183 | INFO     | app.middleware.correlation:dispatch:63 | [12642835-ca8b-4137-9be6-c1837efdbb93] GET /openapi.json -> 200 (0.7ms)
+2026-06-26 18:02:13.643 | INFO     | app.middleware.correlation:dispatch:63 | [04cf9212-fc15-433e-be87-933df89f48a2] GET /chat -> 405 (0.9ms)
+2026-06-26 18:04:10.578 | INFO     | app.middleware.correlation:dispatch:63 | [7e666298-1542-4f85-a7da-86d7db69e584] GET /chat-ui -> 200 (1.0ms)
+2026-06-26 18:05:22.755 | INFO     | app.middleware.correlation:dispatch:63 | [06ff1692-681a-43fe-a417-2591a92d0b0f] GET /chat-ui -> 200 (2.8ms)
+2026-06-26 18:05:26.970 | INFO     | app.services.medical_service:process_chat:41 | [8166a3bf-44fb-4927-adeb-455430658049] Processing chat input: j ai mal au dos depuis 3 jours...
+2026-06-26 18:05:28.864 | INFO     | app.services.medical_service:process_chat:110 | [8166a3bf-44fb-4927-adeb-455430658049] Request completed in 1851.9ms - Risk: MEDIUM
+2026-06-26 18:05:28.865 | INFO     | app.middleware.correlation:dispatch:63 | [8166a3bf-44fb-4927-adeb-455430658049] POST /chat -> 200 (1897.1ms)
+2026-06-26 18:05:38.447 | INFO     | app.middleware.correlation:dispatch:63 | [5fa9c838-1eff-4d1b-aa3a-e4afb287a43e] GET /dashboard -> 200 (2.4ms)
+2026-06-26 18:05:42.843 | INFO     | app.middleware.correlation:dispatch:63 | [dbdc4f3f-22c3-417d-aee8-395974e7f33e] GET /dashboard -> 200 (0.8ms)
+2026-06-26 18:07:17.939 | INFO     | app.middleware.correlation:dispatch:63 | [0fb738bc-9528-4987-b152-1a8e69e5575e] GET /chat -> 405 (1.0ms)
+2026-06-26 18:09:33.958 | INFO     | app.middleware.correlation:dispatch:63 | [7290548c-9f60-4b36-ae92-46ce787d6e9f] GET /metrics -> 200 (120.4ms)
+2026-06-26 18:11:55.465 | INFO     | app.middleware.correlation:dispatch:63 | [b2a59dcb-8cdd-4e3c-94f6-ec992bc5dc17] GET /dashboard/data -> 200 (119.5ms)
+2026-06-26 18:12:12.519 | INFO     | app.middleware.correlation:dispatch:63 | [b24304fe-6863-4ac9-aa65-e7fe94bc921b] GET /dashboard -> 200 (0.7ms)
+2026-06-26 18:12:54.774 | INFO     | app.middleware.correlation:dispatch:63 | [225b0dfe-9768-414b-ad4a-9477ca10203a] GET /dashboard -> 200 (0.9ms)
+2026-06-26 18:12:55.496 | INFO     | app.middleware.correlation:dispatch:63 | [4ef57a16-ab69-4101-87f3-f4d7080464f7] GET /favicon.ico -> 404 (0.5ms)
+2026-06-26 18:13:30.212 | INFO     | app.middleware.correlation:dispatch:63 | [da3d5c6d-1379-4588-8e02-1b0b290d100a] GET /dashboard/data -> 200 (113.6ms)
+2026-06-26 18:14:41.209 | INFO     | app.main:lifespan:46 | 🛑 Shutting down Medical AI Assistant...
+2026-06-26 18:14:41.210 | INFO     | app.main:lifespan:48 | 👋 Goodbye!
+2026-06-26 18:14:50.257 | INFO     | app.monitoring.service:setup_logging:58 | Logging initialized at level INFO
+2026-06-26 18:14:52.099 | INFO     | app.main:lifespan:23 | 🚀 Starting Medical AI Assistant v1.0.0
+2026-06-26 18:14:52.106 | INFO     | app.main:lifespan:29 | ✅ Database initialized
+2026-06-26 18:14:52.141 | INFO     | app.main:lifespan:35 | 💻 System: macOS-14.3-x86_64-i386-64bit | Python 3.12.2
+2026-06-26 18:14:52.142 | INFO     | app.main:lifespan:39 | 🤖 Groq LLM configured: llama-3.3-70b-versatile
+2026-06-26 18:15:54.833 | INFO     | app.middleware.correlation:dispatch:63 | [2c886bbe-fe1c-4141-b7b3-18d43e1d8d31] GET /dashboard -> 200 (152.6ms)
+2026-06-26 18:16:53.580 | INFO     | app.middleware.correlation:dispatch:63 | [98e7a663-de2c-4be3-8bf5-6c285fc17b0d] GET /dashboard -> 200 (120.2ms)
+2026-06-26 18:16:55.146 | INFO     | app.middleware.correlation:dispatch:63 | [a66c79f5-8728-43cf-8095-3f96c2457502] GET /dashboard -> 200 (117.7ms)
+2026-06-26 18:17:01.784 | INFO     | app.middleware.correlation:dispatch:63 | [1c96f568-50e6-4d89-b6e9-4b91c96ca03d] GET /chat-ui -> 200 (3.0ms)
+2026-06-26 18:17:05.593 | INFO     | app.services.medical_service:process_chat:41 | [3c0efdd2-0f8a-4a22-a11a-ceb730773802] Processing chat input: j ai mal au dos depuis 3 jours...
+2026-06-26 18:17:08.161 | INFO     | app.services.medical_service:process_chat:110 | [3c0efdd2-0f8a-4a22-a11a-ceb730773802] Request completed in 2533.1ms - Risk: MEDIUM
+2026-06-26 18:17:08.162 | INFO     | app.middleware.correlation:dispatch:63 | [3c0efdd2-0f8a-4a22-a11a-ceb730773802] POST /chat -> 200 (2572.3ms)
+2026-06-26 18:18:38.681 | INFO     | app.services.medical_service:process_chat:41 | [ac00c7c2-507c-4a5a-8e45-f86964184b15] Processing chat input: j ai mal au dos depuis 3 jours...
+2026-06-26 18:18:40.270 | INFO     | app.services.medical_service:process_chat:110 | [ac00c7c2-507c-4a5a-8e45-f86964184b15] Request completed in 1563.0ms - Risk: MEDIUM
+2026-06-26 18:18:40.271 | INFO     | app.middleware.correlation:dispatch:63 | [ac00c7c2-507c-4a5a-8e45-f86964184b15] POST /chat -> 200 (1590.7ms)
+2026-06-26 18:18:48.805 | INFO     | app.middleware.correlation:dispatch:63 | [9ebc664a-0d25-407a-8948-8484762ada70] GET /dashboard -> 200 (116.1ms)
+2026-06-26 18:18:50.156 | INFO     | app.middleware.correlation:dispatch:63 | [fbd5c0fa-f907-44bf-a7ca-d427f2e8e52a] GET /dashboard -> 200 (116.8ms)
+2026-06-26 18:20:56.855 | INFO     | app.middleware.correlation:dispatch:63 | [aa3183f7-a126-4984-af08-398ff9304bfd] GET /dashboard/data -> 200 (113.9ms)
+2026-06-26 18:25:19.950 | INFO     | app.middleware.correlation:dispatch:63 | [c370404e-7404-42c3-bb40-0f92ce34c5a4] GET /dashboard -> 200 (125.7ms)
+2026-06-26 18:25:20.511 | INFO     | app.middleware.correlation:dispatch:63 | [b3c58514-d66e-4d51-b583-1ce7aa820c74] GET /favicon.ico -> 404 (1.4ms)
+2026-06-26 18:25:47.719 | INFO     | app.middleware.correlation:dispatch:63 | [d4d57cda-7469-48f4-ab25-d7be2ac08f16] GET /health -> 200 (3.9ms)
+2026-06-26 18:26:05.860 | INFO     | app.middleware.correlation:dispatch:63 | [f4c3aa0d-817f-4252-84dc-aca576816a3f] GET /dashboard/data -> 200 (116.7ms)
+2026-06-26 18:26:44.629 | INFO     | app.middleware.correlation:dispatch:63 | [b32b1461-84c0-4390-b66c-b55e35700fae] GET /dashboard -> 200 (115.4ms)
+2026-06-26 18:26:45.072 | INFO     | app.middleware.correlation:dispatch:63 | [58be6ffd-52f4-4062-ba00-63ca16015195] GET /favicon.ico -> 404 (0.8ms)
+2026-06-26 18:26:47.127 | INFO     | app.middleware.correlation:dispatch:63 | [f25c4afb-aef1-4a76-bda9-e7cfe9a16fe9] GET /dashboard -> 200 (117.3ms)
+2026-06-26 18:26:47.317 | INFO     | app.middleware.correlation:dispatch:63 | [c07dc27c-7cab-4374-90f1-a54c59ec2e05] GET /favicon.ico -> 404 (0.7ms)
+2026-06-26 18:27:41.756 | INFO     | app.middleware.correlation:dispatch:63 | [f81c21d7-de29-47aa-bba8-ae13900cd297] GET /dashboard -> 200 (112.6ms)
+2026-06-26 18:27:45.471 | INFO     | app.middleware.correlation:dispatch:63 | [868a7d6f-e452-4017-8217-28e7c8911e29] GET /dashboard -> 200 (115.3ms)
+2026-06-26 18:28:06.022 | INFO     | app.middleware.correlation:dispatch:63 | [dbbde151-0d18-4691-94ce-31900a04ec42] GET /dashboard -> 200 (119.0ms)
+2026-06-26 18:28:06.465 | INFO     | app.middleware.correlation:dispatch:63 | [387c6ab3-df6d-441b-8ac1-0b96c587d638] GET /favicon.ico -> 404 (1.1ms)
+2026-06-26 18:28:07.124 | INFO     | app.middleware.correlation:dispatch:63 | [8cb68618-64ea-4228-bde1-2a93b94c7d05] GET /dashboard -> 200 (119.1ms)
+2026-06-26 18:28:07.359 | INFO     | app.middleware.correlation:dispatch:63 | [727417ec-44bb-490f-97df-f0fbc95ca38c] GET /favicon.ico -> 404 (1.4ms)
+2026-06-26 18:29:05.243 | INFO     | app.main:lifespan:46 | 🛑 Shutting down Medical AI Assistant...
+2026-06-26 18:29:05.243 | INFO     | app.main:lifespan:48 | 👋 Goodbye!
+2026-06-26 18:29:14.264 | INFO     | app.monitoring.service:setup_logging:58 | Logging initialized at level INFO
+2026-06-26 18:29:16.059 | INFO     | app.main:lifespan:23 | 🚀 Starting Medical AI Assistant v1.0.0
+2026-06-26 18:29:16.066 | INFO     | app.main:lifespan:29 | ✅ Database initialized
+2026-06-26 18:29:16.134 | INFO     | app.main:lifespan:35 | 💻 System: macOS-14.3-x86_64-i386-64bit | Python 3.12.2
+2026-06-26 18:29:16.135 | INFO     | app.main:lifespan:39 | 🤖 Groq LLM configured: llama-3.3-70b-versatile
+2026-06-26 18:29:17.710 | INFO     | app.middleware.correlation:dispatch:63 | [b8a0c0f1-eeef-48e6-a093-5ee96e9850a4] GET /health -> 200 (13.7ms)
+2026-06-26 18:31:47.384 | INFO     | app.middleware.correlation:dispatch:63 | [d42f28ae-198b-451f-924c-bcc284f21c96] GET /dashboard -> 200 (140.4ms)
+2026-06-26 18:31:49.028 | INFO     | app.middleware.correlation:dispatch:63 | [f14f6bc0-e1b9-422e-b883-2a1edd0f7d1d] GET /dashboard -> 200 (119.8ms)
+2026-06-26 18:32:10.840 | INFO     | app.middleware.correlation:dispatch:63 | [bcc4c038-df69-4406-a9dc-25f4c9d6fe9e] GET /dashboard/data -> 200 (114.8ms)
+2026-06-26 18:32:22.121 | INFO     | app.middleware.correlation:dispatch:63 | [1c89ecec-5940-41e5-8170-693dd8fc574b] GET /dashboard/data -> 200 (118.0ms)
+2026-06-26 18:34:36.617 | INFO     | app.main:lifespan:46 | 🛑 Shutting down Medical AI Assistant...
+2026-06-26 18:34:36.617 | INFO     | app.main:lifespan:48 | 👋 Goodbye!
+2026-06-26 18:34:44.336 | INFO     | app.monitoring.service:setup_logging:58 | Logging initialized at level INFO
+2026-06-26 18:34:45.666 | INFO     | app.main:lifespan:23 | 🚀 Starting Medical AI Assistant v1.0.0
+2026-06-26 18:34:45.674 | INFO     | app.main:lifespan:29 | ✅ Database initialized
+2026-06-26 18:34:45.704 | INFO     | app.main:lifespan:35 | 💻 System: macOS-14.3-x86_64-i386-64bit | Python 3.12.2
+2026-06-26 18:34:45.704 | INFO     | app.main:lifespan:39 | 🤖 Groq LLM configured: llama-3.3-70b-versatile
+2026-06-26 18:34:49.657 | INFO     | app.middleware.correlation:dispatch:63 | [bcc67535-57ca-4ddf-a6fc-c7eae9a154d5] GET /health -> 200 (12.4ms)
+2026-06-26 18:34:53.848 | INFO     | app.middleware.correlation:dispatch:63 | [87f734ac-717d-4381-9cf8-a2f68114ad56] GET /dashboard -> 200 (133.0ms)
+2026-06-26 18:34:58.691 | INFO     | app.middleware.correlation:dispatch:63 | [0ef17fe2-d097-4ccf-8c74-ee53f6369231] GET /dashboard -> 200 (114.6ms)
+2026-06-26 18:35:03.016 | INFO     | app.middleware.correlation:dispatch:63 | [bfd0e7d2-3632-4efe-9cc2-6b00e6b350b6] GET /dashboard -> 200 (116.8ms)
+2026-06-26 18:35:07.658 | INFO     | app.middleware.correlation:dispatch:63 | [71d4c23c-d4eb-41b2-a2ff-8b982a25a993] GET /dashboard -> 200 (113.0ms)
+2026-06-26 18:35:11.535 | INFO     | app.middleware.correlation:dispatch:63 | [e2910c3f-52e3-411e-b542-3a8f7af0f431] GET /dashboard -> 200 (117.2ms)
+2026-06-26 19:01:54.852 | INFO     | app.monitoring.service:setup_logging:58 | Logging initialized at level INFO
+2026-06-26 19:01:56.188 | INFO     | app.main:lifespan:23 | 🚀 Starting Medical AI Assistant v1.0.0
+2026-06-26 19:01:56.196 | INFO     | app.main:lifespan:29 | ✅ Database initialized
+2026-06-26 19:01:56.225 | INFO     | app.main:lifespan:35 | 💻 System: macOS-14.3-x86_64-i386-64bit | Python 3.12.2
+2026-06-26 19:01:56.225 | INFO     | app.main:lifespan:39 | 🤖 Groq LLM configured: llama-3.3-70b-versatile
+2026-06-26 19:01:56.227 | INFO     | app.main:lifespan:46 | 🛑 Shutting down Medical AI Assistant...
+2026-06-26 19:01:56.227 | INFO     | app.main:lifespan:48 | 👋 Goodbye!
+2026-06-26 19:02:05.591 | INFO     | app.middleware.correlation:dispatch:63 | [1f46f90c-f1da-4fba-9085-8ffd9541a30b] GET /health -> 200 (3.4ms)
+2026-06-26 19:02:09.641 | INFO     | app.middleware.correlation:dispatch:63 | [f3ce7b4d-2568-44f7-a04d-4a645cd16f3d] GET /dashboard -> 200 (116.2ms)
+2026-06-26 19:02:48.871 | INFO     | app.middleware.correlation:dispatch:63 | [04607ae4-c298-4d87-99dc-91c4f6a41603] GET /dashboard/data -> 200 (111.2ms)
+2026-06-26 19:05:06.322 | INFO     | app.middleware.correlation:dispatch:63 | [addd1891-cd8a-490a-98e6-927700fbb268] GET /dashboard -> 200 (120.9ms)
+2026-06-26 19:05:21.470 | INFO     | app.middleware.correlation:dispatch:63 | [35375081-a6e2-463f-933f-aef33ba2212d] GET /dashboard/data -> 200 (114.6ms)
+2026-06-26 19:06:48.573 | INFO     | app.middleware.correlation:dispatch:63 | [17e2e06e-ee46-4915-a9b6-bf4aefd7cd38] GET /chat-ui -> 200 (5.2ms)
+2026-06-26 19:06:52.728 | INFO     | app.middleware.correlation:dispatch:63 | [0a6c8b46-768f-4228-8275-c6f6ff5cdd06] GET /dashboard/data -> 200 (121.7ms)
+2026-06-26 19:07:17.554 | INFO     | app.services.medical_service:process_chat:41 | [4a4a41d0-c5c2-426c-927f-f0e8c9ed032c] Processing chat input: J ai de la fievre, je tousse et je suis fatigue...
+2026-06-26 19:07:19.131 | INFO     | app.services.medical_service:process_chat:110 | [4a4a41d0-c5c2-426c-927f-f0e8c9ed032c] Request completed in 1532.9ms - Risk: MEDIUM
+2026-06-26 19:07:19.132 | INFO     | app.middleware.correlation:dispatch:63 | [4a4a41d0-c5c2-426c-927f-f0e8c9ed032c] POST /chat -> 200 (1580.1ms)
+2026-06-26 19:07:30.708 | INFO     | app.middleware.correlation:dispatch:63 | [24945578-c421-4e35-a9b4-d1509f67125c] GET /dashboard -> 200 (118.3ms)
+2026-06-26 19:09:37.534 | INFO     | app.main:lifespan:46 | 🛑 Shutting down Medical AI Assistant...
+2026-06-26 19:09:37.536 | INFO     | app.main:lifespan:48 | 👋 Goodbye!
+2026-06-26 19:09:44.861 | INFO     | app.monitoring.service:setup_logging:58 | Logging initialized at level INFO
+2026-06-26 19:09:46.184 | INFO     | app.main:lifespan:23 | 🚀 Starting Medical AI Assistant v1.0.0
+2026-06-26 19:09:46.191 | INFO     | app.main:lifespan:29 | ✅ Database initialized
+2026-06-26 19:09:46.223 | INFO     | app.main:lifespan:35 | 💻 System: macOS-14.3-x86_64-i386-64bit | Python 3.12.2
+2026-06-26 19:09:46.223 | INFO     | app.main:lifespan:39 | 🤖 Groq LLM configured: llama-3.3-70b-versatile
+2026-06-26 19:09:50.075 | INFO     | app.middleware.correlation:dispatch:63 | [34893a19-3380-428a-8da6-a8d424d256db] GET /chat-ui -> 200 (6.7ms)
+2026-06-26 19:09:53.820 | INFO     | app.middleware.correlation:dispatch:63 | [aaf7a36d-25e8-44aa-871e-a20f360a8b51] GET /chat-ui -> 200 (1.2ms)
+2026-06-26 19:12:01.229 | INFO     | app.middleware.correlation:dispatch:63 | [6d537a33-e34e-4f79-8458-6fba0ce8772a] GET /chat-ui -> 200 (2.8ms)
+2026-06-26 19:12:13.909 | INFO     | app.services.medical_service:process_chat:41 | [4eb7c974-4bb9-456c-afc2-aa61424cd9c0] Processing chat input: J ai de la fievre, je tousse et je suis fatigue...
+2026-06-26 19:12:15.779 | INFO     | app.services.medical_service:process_chat:110 | [4eb7c974-4bb9-456c-afc2-aa61424cd9c0] Request completed in 1828.8ms - Risk: MEDIUM
+2026-06-26 19:12:15.780 | INFO     | app.middleware.correlation:dispatch:63 | [4eb7c974-4bb9-456c-afc2-aa61424cd9c0] POST /chat -> 200 (1874.0ms)
+2026-06-26 19:12:30.932 | INFO     | app.middleware.correlation:dispatch:63 | [a57e6a73-f346-4942-afaa-dc0a9889d25d] GET /dashboard -> 200 (2.1ms)
+2026-06-26 19:12:31.134 | INFO     | app.middleware.correlation:dispatch:63 | [7e4b3de6-11f1-41f8-8d61-bef87c6a5f22] GET /dashboard/data -> 200 (147.1ms)
+2026-06-26 19:12:41.104 | INFO     | app.middleware.correlation:dispatch:63 | [32f2f8f4-7ebb-4a9e-8101-d31ca5b9b14f] GET /dashboard/data -> 200 (115.8ms)
+2026-06-26 19:12:49.557 | INFO     | app.middleware.correlation:dispatch:63 | [b66f48fd-6e93-4a48-95c6-efa2881d92f7] GET /chat-ui -> 200 (2.1ms)
+2026-06-26 19:12:51.327 | INFO     | app.middleware.correlation:dispatch:63 | [ef97b990-b26a-44e6-99b2-549c491d2f48] GET /dashboard/data -> 200 (124.2ms)
+2026-06-26 19:13:01.374 | INFO     | app.middleware.correlation:dispatch:63 | [63f8386c-805b-4d80-836e-83fa5a39aabe] GET /dashboard/data -> 200 (118.4ms)
+2026-06-26 19:13:06.037 | INFO     | app.services.medical_service:process_chat:41 | [70461650-a1f6-4331-ba54-a631fffbd618] Processing chat input: J ai de la fievre, je tousse et je suis fatigue...
+2026-06-26 19:13:07.624 | INFO     | app.services.medical_service:process_chat:110 | [70461650-a1f6-4331-ba54-a631fffbd618] Request completed in 1559.4ms - Risk: MEDIUM
+2026-06-26 19:13:07.625 | INFO     | app.middleware.correlation:dispatch:63 | [70461650-a1f6-4331-ba54-a631fffbd618] POST /chat -> 200 (1590.3ms)
+2026-06-26 19:13:11.118 | INFO     | app.middleware.correlation:dispatch:63 | [34b4ef04-4941-41af-8042-bd6d03ec6b51] GET /dashboard/data -> 200 (118.3ms)
+2026-06-26 19:13:13.163 | INFO     | app.middleware.correlation:dispatch:63 | [25ce1a30-d15b-409c-b019-1357dde35a9a] GET /dashboard -> 200 (0.6ms)
+2026-06-26 19:13:13.326 | INFO     | app.middleware.correlation:dispatch:63 | [7fc2a783-8662-480a-96d3-05765a713b3d] GET /dashboard/data -> 200 (121.9ms)
+2026-06-26 19:13:23.332 | INFO     | app.middleware.correlation:dispatch:63 | [0b9e043a-b5a8-46fa-a122-ea0611d245e6] GET /dashboard/data -> 200 (123.3ms)
+2026-06-26 19:13:33.336 | INFO     | app.middleware.correlation:dispatch:63 | [923e982e-5f7f-425a-b3e6-78843b1113ad] GET /dashboard/data -> 200 (125.1ms)
+2026-06-26 19:13:43.339 | INFO     | app.middleware.correlation:dispatch:63 | [0f8e7708-8358-49c0-bd5e-4214070aa6e4] GET /dashboard/data -> 200 (128.3ms)
+2026-06-26 19:13:53.335 | INFO     | app.middleware.correlation:dispatch:63 | [9c82881f-edfe-4ea0-9ff3-4758c6c8b3d3] GET /dashboard/data -> 200 (123.9ms)
+2026-06-26 19:14:07.795 | INFO     | app.middleware.correlation:dispatch:63 | [d1ef9bd7-dbec-4813-b50e-fe6a5254c472] GET /dashboard/data -> 200 (119.4ms)
+2026-06-26 19:14:14.949 | INFO     | app.middleware.correlation:dispatch:63 | [be40e83f-1783-434d-827e-751c314546b5] GET /dashboard/data -> 200 (112.3ms)
+2026-06-26 19:14:24.712 | INFO     | app.middleware.correlation:dispatch:63 | [0bdb2de7-ced0-4cdf-aac9-c76c8d06667b] GET /dashboard/data -> 200 (123.4ms)
+2026-06-26 19:14:37.375 | INFO     | app.middleware.correlation:dispatch:63 | [d042ccec-6e03-44e8-a83f-081608527c33] GET /dashboard/data -> 200 (119.3ms)
+2026-06-26 19:14:49.248 | INFO     | app.middleware.correlation:dispatch:63 | [fbc0b859-0b87-4bda-aeb3-1982eeaf1417] GET /dashboard/data -> 200 (121.7ms)
+2026-06-26 19:14:54.324 | INFO     | app.middleware.correlation:dispatch:63 | [66a5c9cb-44cb-4830-b818-2de27065a7f9] GET /dashboard/data -> 200 (122.9ms)
+2026-06-26 19:15:06.468 | INFO     | app.middleware.correlation:dispatch:63 | [c32ca114-ca76-4e20-9e5f-3a1fc2729bb7] GET /dashboard/data -> 200 (121.9ms)
+2026-06-26 19:15:51.334 | INFO     | app.middleware.correlation:dispatch:63 | [c51d2988-81a0-482e-8614-fc2ddd058e7a] GET /dashboard/data -> 200 (122.6ms)
+2026-06-26 19:16:51.336 | INFO     | app.middleware.correlation:dispatch:63 | [5baf4932-deee-4650-99ce-9ef954c141e1] GET /dashboard/data -> 200 (122.8ms)
+2026-06-26 19:17:51.323 | INFO     | app.middleware.correlation:dispatch:63 | [ab5d7fc3-acf6-47a5-8e34-204c2a908e9e] GET /dashboard/data -> 200 (124.4ms)
+2026-06-26 19:18:51.313 | INFO     | app.middleware.correlation:dispatch:63 | [06879488-5e1b-4cc3-8e10-be4d7ba12b70] GET /dashboard/data -> 200 (121.3ms)
