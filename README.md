@@ -2,36 +2,37 @@
 
 **Assistant de Pré-Diagnostic Médical** basé sur une architecture **Multi-Agents LangGraph**.
 
-⚠️ **Avertissement : cette application fournit uniquement une aide informative et ne remplace pas un professionnel de santé.**
+**Avertissement : cette application fournit uniquement une aide informative et ne remplace pas un professionnel de sante.**
 
 ---
 
-## 🎯 Objectif
+## Objectif
 
-Système multi-agents qui analyse les symptômes décrits par l'utilisateur, évalue le niveau de risque et fournit des conseils généraux. Le système ne remplace jamais un médecin.
+Systeme multi-agents qui analyse les symptomes decrits par l'utilisateur, evalue le niveau de risque et fournit des conseils generaux. Le systeme ne remplace jamais un medecin.
 
-## ✨ Fonctionnalités
+## Fonctionnalites
 
-- 🤖 **Multi-Agents LangGraph** : Supervisor, Symptom Analysis, Risk Assessment, Medical Advice, Monitoring
-- 🏗️ **Clean Architecture** : Modulaire, testé, prêt pour la production
-- 🚀 **API REST FastAPI** : Endpoints complets avec documentation Swagger/Redoc
-- 📊 **Dashboard temps réel** : Bootstrap 5 + Chart.js avec auto-refresh
-- 💾 **Base de données SQLite** : Persistance des requêtes, métriques et historique
-- 🔍 **Middleware** : Correlation ID, timing, logging structuré
-- 📝 **Logging avancé** : Loguru avec rotation et rétention
-- 🐳 **Docker** : Conteneurisé et prêt pour le déploiement
-- ✅ **Tests complets** : Pytest avec coverage ≥ 90%
-- 🔄 **CI/CD** : GitHub Actions + Render
+- **Multi-Agents LangGraph** : Supervisor, Symptom Analysis, Risk Assessment, Medical Advice, Monitoring
+- **Clean Architecture** : Modulaire, teste, pret pour la production
+- **API REST FastAPI** : Endpoints complets avec documentation Swagger/Redoc
+- **Dashboard temps reel** : Bootstrap 5 + Chart.js avec auto-refresh et valeurs injectees cote serveur
+- **Interface Chat** : Design type messagerie clinique, bulles, resultats medicaux structures
+- **Base de donnees SQLite** : Persistance des requetes, metriques et historique
+- **Middleware** : Correlation ID, timing, logging structure
+- **Logging avance** : Loguru avec rotation et retention
+- **Docker** : Conteneurise et pret pour le deploiement
+- **Tests complets** : Pytest avec 195 tests et couverture >= 88%
+- **CI/CD** : GitHub Actions + Render
 
-## 🏗️ Architecture
+## Architecture
 
 ```
-Utilisateur → Supervisor Agent → Symptom Analysis Agent
-  → Risk Assessment Agent → Medical Advice Agent
-  → Monitoring Agent → Réponse Finale
+Utilisateur -> Supervisor Agent -> Symptom Analysis Agent
+  -> Risk Assessment Agent -> Medical Advice Agent
+  -> Monitoring Agent -> Reponse Finale
 ```
 
-## 🛠️ Stack Technique
+## Stack Technique
 
 | Technologie | Version |
 |------------|---------|
@@ -45,13 +46,13 @@ Utilisateur → Supervisor Agent → Symptom Analysis Agent
 | Chart.js | 4.4 |
 | Docker | - |
 
-## 🚀 Démarrage Rapide
+## Demarrage Rapide
 
 ### Avec Docker
 
 ```bash
 cp .env.example .env
-# Éditer .env avec votre clé GROQ_API_KEY
+# Editer .env avec votre cle GROQ_API_KEY
 docker compose up --build
 ```
 
@@ -65,58 +66,59 @@ pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```
 
-## 📚 Documentation
+## Documentation
 
 - [Guide d'installation](INSTALL.md)
 - [Architecture](ARCHITECTURE.md)
 - [API](API.md)
-- [Déploiement Render](DEPLOY_RENDER.md)
+- [Deploiement Render](DEPLOY_RENDER.md)
 - [Agent Card](agent_card.md)
 - [Runbook Incident](runbook_incident.md)
 - [Changelog](CHANGELOG.md)
 
-## 📖 Endpoints
+## Endpoints
 
 | Endpoint | Description |
 |----------|-------------|
 | `GET /` | Informations API |
 | `GET /health` | Health check |
 | `POST /chat` | Chat avec les agents |
-| `GET /metrics` | Métriques |
+| `GET /chat-ui` | Interface chat web |
+| `GET /metrics` | Metriques |
 | `GET /dashboard` | Dashboard web |
-| `GET /dashboard/data` | Données du dashboard (JSON) |
+| `GET /dashboard/data` | Donnees du dashboard (JSON) |
 | `GET /history` | Historique des conversations |
 | `GET /logs` | Logs applicatifs |
 | `GET /version` | Version |
 | `/docs` | Swagger UI |
 | `/redoc` | Redoc UI |
 
-## 📁 Structure du Projet
+## Structure du Projet
 
 ```
 medical-ai-assistant/
-├── app/
-│   ├── agents/       # Agents du système multi-agents
-│   ├── api/          # Routes FastAPI
-│   ├── core/         # Configuration et exceptions
-│   ├── database/     # Modèles et connexion SQLite
-│   ├── dashboard/    # Template HTML du dashboard
-│   ├── graph/        # Workflow LangGraph
-│   ├── middleware/   # Middleware FastAPI
-│   ├── monitoring/   # Logging et monitoring
-│   ├── prompts/      # Templates de prompts
-│   ├── schemas/      # Schémas Pydantic
-│   ├── services/     # Logique métier
-│   └── utils/        # Utilitaires
-├── tests/            # Tests pytest
-├── docs/             # Documentation
-├── logs/             # Fichiers de logs
-├── Dockerfile
-├── docker-compose.yml
-├── render.yaml
-└── README.md
++-- app/
+|   +-- agents/       # Agents du systeme multi-agents
+|   +-- api/          # Routes FastAPI
+|   +-- core/         # Configuration et exceptions
+|   +-- database/     # Modeles et connexion SQLite
+|   +-- dashboard/    # Template HTML du dashboard
+|   +-- graph/        # Workflow LangGraph
+|   +-- middleware/   # Middleware FastAPI
+|   +-- monitoring/   # Logging et monitoring
+|   +-- prompts/      # Templates de prompts
+|   +-- schemas/      # Schemas Pydantic
+|   +-- services/     # Logique metier
+|   +-- utils/        # Utilitaires
++-- tests/            # Tests pytest
++-- docs/             # Documentation
++-- logs/             # Fichiers de logs
++-- Dockerfile
++-- docker-compose.yml
++-- render.yaml
++-- README.md
 ```
 
-## 📄 Licence
+## Licence
 
 MIT
