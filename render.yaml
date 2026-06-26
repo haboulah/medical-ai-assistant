@@ -1,24 +1,23 @@
-# Render deployment configuration
-# https://render.com/docs/deploy-bluezprint
-
+# Render Blueprint: https://render.com/docs/blueprint-spec
 services:
   - type: web
     name: medical-ai-assistant
-    env: python
+    env: docker
+    dockerfilePath: ./Dockerfile
+    repo: https://github.com/haboulah/medical-ai-assistant
     region: frankfurt
     plan: free
-    buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
     healthCheckPath: /health
     envVars:
       - key: GROQ_API_KEY
-        sync: false
-        required: true
+        sync: false  # set manually in Render dashboard
       - key: APP_NAME
-        value: Medical AI Assistant
-      - key: APP_VERSION
-        value: 1.0.0
-      - key: LOG_LEVEL
-        value: INFO
+        value: "Medical AI Assistant"
+      - key: APP_HOST
+        value: "0.0.0.0"
+      - key: APP_PORT
+        value: "10000"
       - key: DATABASE_URL
-        value: sqlite+aiosqlite:///./data/medical_ai.db
+        value: "sqlite+aiosqlite:///./data/medical_ai.db"
+      - key: DEBUG
+        value: "false"

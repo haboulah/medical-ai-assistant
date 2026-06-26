@@ -23,6 +23,12 @@ class Settings(BaseSettings):
     APP_PORT: int = 8000
     DEBUG: bool = False
 
+    @property
+    def bind_port(self) -> int:
+        """Return the port to bind, respecting Render's $PORT env var."""
+        import os
+        return int(os.environ.get("PORT", self.APP_PORT))
+
     # Database
     DATABASE_URL: str = "sqlite+aiosqlite:///./data/medical_ai.db"
 
