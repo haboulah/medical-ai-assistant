@@ -1,0 +1,58 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+*.egg
+*.whl
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+*.coverage.*
+coverage.xml
+
+# Virtual environment
+.venv/
+venv/
+env/
+virtualenv/
+
+# Environment
+.env
+.env.local
+*.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+logs/
+*.log
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+data/*.db
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker data
+docker/data/
+
+# Runtime
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage data
+.coverage*
