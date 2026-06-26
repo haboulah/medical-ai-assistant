@@ -1,6 +1,5 @@
 ---
-title: Medical Ai Assistant
-emoji: 🔥
+title: Medical AI Assistant
 colorFrom: indigo
 colorTo: purple
 sdk: docker
@@ -131,15 +130,3 @@ medical-ai-assistant/
 ## Licence
 
 MIT
----
-title: Medical Ai Assistant
-emoji: 🔥
-colorFrom: indigo
-colorTo: purple
-sdk: docker
-pinned: false
-license: mit
----
-
-Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
->>>>>>> da5a4be5e8e95e6569951a56900f3deafdafbfff
